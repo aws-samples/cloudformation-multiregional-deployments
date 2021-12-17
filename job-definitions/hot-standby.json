@@ -1,0 +1,23 @@
+{
+    "moduleName": "HotStandby",
+    "timeout": "3600",
+    "description": "Provisions multi-regional configuration for testing active-active fail-over environment.",
+    "stacks": [
+      {
+        "templatePath": "https://ee-assets-prod-us-east-1.s3.amazonaws.com/modules/630039b9022d4b46bb6cbad2e3899733/v1/HotStandby.yaml",
+        "stackName": "HotStandby-Primary",
+        "regionName": "us-east-1",
+        "parameters": {
+          "IsPrimary": "yes"
+        }
+      },
+      {
+        "templatePath": "https://ee-assets-prod-us-east-1.s3.amazonaws.com/modules/630039b9022d4b46bb6cbad2e3899733/v1/HotStandby.yaml",
+        "stackName": "HotStandby-Secondary",
+        "regionName": "us-west-1",
+        "parameters": {
+          "IsPrimary": "no"
+        }
+      }
+    ]
+  }
