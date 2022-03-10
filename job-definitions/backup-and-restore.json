@@ -1,0 +1,14 @@
+{
+  "moduleName": "BackupAndRestore",
+  "timeout": "1800",
+  "description": "Provisions an environment for backup and restore testing.",
+  "stacks":[
+    {
+      "templatePath": "https://ee-assets-prod-us-east-1.s3.amazonaws.com/modules/630039b9022d4b46bb6cbad2e3899733/v1/BackupAndRestore.yaml",
+      "stackName": "BackupAndRestore",
+      "regionName": "us-east-1",
+      "parameters": {
+      }
+    }
+  ]
+}

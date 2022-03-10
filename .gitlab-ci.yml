@@ -1,0 +1,38 @@
+# This file is a template, and might need editing before it works on your project.
+# To contribute improvements to CI/CD templates, please follow the Development guide at:
+# https://docs.gitlab.com/ee/development/cicd/templates.html
+# This specific template is located at:
+# https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Getting-Started.gitlab-ci.yml
+
+# This is a sample GitLab CI/CD configuration file that should run without any modifications.
+# It demonstrates a basic 3 stage CI/CD pipeline. Instead of real tests or scripts,
+# it uses echo commands to simulate the pipeline execution.
+#
+# A pipeline is composed of independent jobs that run scripts, grouped into stages.
+# Stages run in sequential order, but jobs within stages run in parallel.
+#
+# For more information, see: https://docs.gitlab.com/ee/ci/yaml/index.html#stages
+
+default:
+  image: python:3.9
+
+stages:          # List of stages for jobs, and their order of execution
+  - deploy
+
+deploy-job:
+  stage: deploy
+  script:
+    - echo "Preparing the environment..."
+    - pwd && ls -R && export
+    - apt-get -y update
+    - apt-get -y install --no-install-recommends npm curl zip jq
+    - npm install -g aws-cdk
+    - /usr/local/bin/python -m pip install --upgrade pip
+    - pip install awscli
+    - pip install -r requirements.txt
+    - chmod a+x *.py *.sh
+    - ./deploy.sh
+    - echo "Compile complete."
+  environment:
+    name: $CI_COMMIT_BRANCH
+    url: https://CI_COMMIT_BRANCH.multiregion-orchestration-blog

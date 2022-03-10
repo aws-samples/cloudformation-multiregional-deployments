@@ -1,0 +1,23 @@
+{
+  "moduleName": "PilotLight",
+  "timeout": "3600",
+  "description": "Provisions multi-regional configuration for testing fail-over within a pilot-light environment.",
+  "stacks": [
+    {
+      "templatePath": "https://ee-assets-prod-us-east-1.s3.amazonaws.com/modules/630039b9022d4b46bb6cbad2e3899733/v1/PilotLightDR.yaml",
+      "stackName": "Pilot-Primary",
+      "regionName": "us-east-1",
+      "parameters": {
+        "IsPrimary": "yes"
+      }
+    },
+    {
+      "templatePath": "https://ee-assets-prod-us-east-1.s3.amazonaws.com/modules/630039b9022d4b46bb6cbad2e3899733/v1/PilotLightDR.yaml",
+      "stackName": "Pilot-Secondary",
+      "regionName": "us-west-1",
+      "parameters": {
+        "IsPrimary": "no"
+      }
+    }
+  ]
+}
