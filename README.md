@@ -1,6 +1,6 @@
 # Gaining more control over Multi-Regional AWS CloudFormation deployments.
 
-[Event Engine](https://admin.eventengine.run) only supports deploying templates into a single region.  This project works around that limitation by creating a deployment Stepfunction and then executing CloudFormation cross region.  There is also support for dependencies (e.g., configure a primary region before secondary).
+AWS Immersion Days use a tool called Event Engine, which only supports deploying templates into a single region.  This project works around that limitation by creating a deployment Stepfunction and then executing CloudFormation cross region.  There is also support for dependencies (e.g., configure a primary region before secondary).
 
 ## How is the project organized
 
