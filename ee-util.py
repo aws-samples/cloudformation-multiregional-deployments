@@ -21,7 +21,7 @@ def get_asset_bucket()->str:
 
   raise ValueError('Missing env TEMPLATE_ASSET_BUCKET and S3_ASSET_BUCKET')
 
-with open('cdk.out/DrDeployer.template.json','rt') as f:
+with open('cdk.out/CfnMultiRegionOrchestrator.template.json','rt') as f:
   content = loads(f.read()) #stdin.read())
 
 parameters:dict = content['Parameters']
